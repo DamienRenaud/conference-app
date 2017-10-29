@@ -48,7 +48,7 @@
                 newContact.nickName = vm.speaker.name;
 
                 $cordovaContacts.save(newContact).then(result => {
-                    speakerContact = newContact;
+                    speakerContact = result;
                     alert("Contact sauvegardé");
                 }, error => {
                     console.log(error);
