@@ -1,0 +1,32 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Détail présentateur">
+  <ion-content class="padding">
+    <h1>{{vm.speaker.name}}</h1>
+    <li class="item item-toggle">
+        Ajouter aux contacts
+        <label class="toggle toggle-balanced">
+          <input type="checkbox" ng-click="vm.manageContacts()" ng-model="vm.contactHasToBeSaved">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+     </li>
+    <div class="row home-img-row">
+      <img ng-if="vm.speaker.photoUrl" class="home-img" ng-src="https://devfest.gdgnantes.com{{vm.speaker.photoUrl}}">
+    </div>
+    <h3>Ses présentations</h3>
+    <ion-list ng-show="vm.speakerSessions.length > 0" class="list-group">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="session in vm.speakerSessions" type="item-text-wrap"
+        href="#/tab/sessions/{{session.id}}">
+        <img ng-if="session.image" ng-src="https://devfest.gdgnantes.com{{session.image}}"/>
+        {{session.title}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

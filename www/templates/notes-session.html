@@ -1,0 +1,14 @@
+<ion-view view-title="{{vm.session.title}}">
+    <ion-content class="padding">
+        <h1>{{vm.session.title}}</h1>
+        <a class="button button-icon icon ion-camera" ng-click="vm.getInstantPicture()"></a>
+        <a class="button button-icon icon ion-image" ng-click="vm.getLibraryPicture()"></a>
+        <a class="button button-block button-positive" ng-click="vm.saveNotes()">
+            Enregistrer
+        </a>
+        <label class="item item-input" style="height: 200px">
+            <textarea placeholder="Your notes" style="height:100%" ng-model="vm.sessionNotes"></textarea>
+        </label>
+        <img id="sessionImage" style="margin-top:10px;" ng-click="vm.showSharingMenu()">
+    </ion-content>
+</ion-view>

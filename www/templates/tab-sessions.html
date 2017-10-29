@@ -1,0 +1,19 @@
+<ion-view view-title="Sessions">
+  <ion-content>
+    <div class="button-bar">
+      <a class="button" ng-repeat="date in vm.agenda" ng-click="vm.getDateSessions(date)">{{date.dateReadable}}</a>
+    </div>
+    <ion-list>
+      <span ng-repeat="timeslot in vm.displayedData">
+        <div class="item item-divider">
+          {{timeslot.startTime}} - {{timeslot.endTime}}
+        </div>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="session in timeslot.sessions" type="item-text-wrap" href="#/tab/sessions/{{session.id}}">
+          <img ng-if="session.image" ng-src="https://devfest.gdgnantes.com{{session.image}}"/>        
+          {{session.title}}
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+    </span>
+    </ion-list>
+  </ion-content>
+</ion-view>
